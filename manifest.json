@@ -1,0 +1,33 @@
+{
+  "name": "BlinkedIn",
+  "version": "1.0",
+  "description": "Remove images from LinkedIn",
+  "permissions": ["tabs", "activeTab", "declarativeContent", "storage"],
+  "options_page": "options.html",
+  "background": {
+    "scripts": ["jquery-3.3.1.min.js","background.js"],
+    "persistent": true
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png",
+      "48": "images/get_started48.png",
+      "128": "images/get_started128.png"
+    }
+  },
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  },
+  "content_scripts": [
+    {
+        "matches": ["*://*.linkedin.com/in/*","*://*.linkedin.com/search/*"],
+        "js": ["jquery-3.3.1.min.js","remove-pic-2.js"]
+    }
+  ],
+  "manifest_version": 2
+}
